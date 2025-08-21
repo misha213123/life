@@ -1,0 +1,84 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+locale: "ru"
+
+media_folder: "assets"
+public_folder: "/assets"
+
+collections:
+  - name: "stories"
+    label: "Истории (публичные)"
+    format: "json"
+    extension: "json"
+    editor: { preview: false }
+    files:
+      - file: "data/stories.json"
+        label: "Лента историй"
+        name: "stories_file"
+        fields:
+          - label: "Истории"
+            name: "stories"
+            widget: "list"
+            fields:
+              - {label: "Дата", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false}
+              - {label: "Заголовок", name: "title", widget: "string"}
+              - {label: "Текст", name: "text", widget: "text"}
+              - {label: "Теги", name: "tags", widget: "list", required: false}
+              - label: "Картинки"
+                name: "images"
+                widget: "list"
+                required: false
+                field: {label: "Файл", name: "image", widget: "image"}
+              - {label: "Настроение", name: "mood", widget: "string", required: false}
+              - {label: "Автор (опционально)", name: "author", widget: "string", required: false}
+
+  - name: "friends"
+    label: "Список друзей"
+    format: "json"
+    extension: "json"
+    editor: { preview: false }
+    files:
+      - file: "data/friends.json"
+        label: "Друзья"
+        name: "friends_file"
+        fields:
+          - label: "Друзья"
+            name: "friends"
+            widget: "list"
+            fields:
+              - {label: "Имя", name: "name", widget: "string"}
+              - {label: "Ник", name: "nickname", widget: "string", required: false}
+              - {label: "Цитата", name: "quote", widget: "string", required: false}
+              - {label: "Память/био", name: "memory", widget: "text", required: false}
+              - {label: "Аватар", name: "avatar", widget: "image", required: false}
+              - {label: "Ссылка", name: "link", widget: "string", required: false}
+
+  - name: "submissions"
+    label: "Заявки от друзей (нужна модерация)"
+    format: "json"
+    extension: "json"
+    editor: { preview: false }
+    files:
+      - file: "data/submissions.json"
+        label: "Заявки"
+        name: "submissions_file"
+        fields:
+          - label: "Заявки"
+            name: "submissions"
+            widget: "list"
+            fields:
+              - {label: "Дата", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false}
+              - {label: "Автор", name: "author", widget: "string"}
+              - {label: "Заголовок", name: "title", widget: "string"}
+              - {label: "Текст", name: "text", widget: "text"}
+              - {label: "Теги", name: "tags", widget: "list", required: false}
+              - label: "Картинки"
+                name: "images"
+                widget: "list"
+                required: false
+                field: {label: "Файл", name: "image", widget: "image"}
+              - {label: "Настроение", name: "mood", widget: "string", required: false}
+              - {label: "Одобрено?", name: "approved", widget: "boolean", default: false}

@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+locale: "ru"
+
+media_folder: "assets/friends"
+public_folder: "/assets/friends"
+
+collections:
+  - name: "submissions"
+    label: "Мои воспоминания"
+    description: "Добавь свою историю. Она появится на сайте после одобрения."
+    format: "json"
+    extension: "json"
+    editor: { preview: false }
+    files:
+      - file: "data/submissions.json"
+        label: "Заявки"
+        name: "submissions_file"
+        fields:
+          - label: "Заявки"
+            name: "submissions"
+            widget: "list"
+            fields:
+              - {label: "Дата", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false}
+              - {label: "Автор (твоё имя)", name: "author", widget: "string"}
+              - {label: "Заголовок", name: "title", widget: "string"}
+              - {label: "Текст", name: "text", widget: "text"}
+              - {label: "Теги", name: "tags", widget: "list", required: false}
+              - label: "Картинки"
+                name: "images"
+                widget: "list"
+                required: false
+                field: {label: "Файл", name: "image", widget: "image"}
+              - {label: "Одобрено?", name: "approved", widget: "boolean", default: false, hint: "Эту галочку ставит админ", required: false}
