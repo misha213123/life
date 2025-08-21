@@ -4,24 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin</title>
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Decap (Netlify) CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <style>
+      html,body{height:100%;margin:0;background:#0f1115;color:#e8ecf1;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+      .tip{position:fixed;inset:auto 12px 12px 12px;color:#8b93a7;font-size:13px}
+      a{color:#5ea1ff}
+    </style>
   </head>
   <body>
-    <noscript>Нужен JavaScript для входа в админку.</noscript>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        if (window.netlifyIdentity) {
-          // Открываем окно логина автоматически, если не залогинен
-          window.netlifyIdentity.on('init', (user) => {
-            if (!user) window.netlifyIdentity.open('login');
-          });
-          // После логина перезагружаем страницу, CMS поднимется
-          window.netlifyIdentity.on('login', () => window.location.reload());
-          // Если вдруг виджет не инициализировался — откроем через 1с
-          setTimeout(() => window.netlifyIdentity && window.netlifyIdentity.open('login'), 1000);
-        }
-      });
-    </script>
+    <div class="tip">
+      Если окно входа не появилось, проверь <code>admin/config.yml</code> → <code>backend.app_id</code>.
+      Нужно поставить твой <b>GitHub OAuth Client ID</b>.
+    </div>
   </body>
 </html>

@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: misha213123/life
   branch: main
+  auth_type: implicit
+  app_id: YOUR_GITHUB_OAUTH_CLIENT_ID   # тот же Client ID
 
 publish_mode: editorial_workflow
 locale: "ru"
@@ -20,23 +23,14 @@ collections:
         label: "Заявки"
         name: "submissions_file"
         fields:
-          - label: "Заявки"
-            name: "submissions"
-            widget: "list"
-            fields:
-              - { label: "Дата", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
-              - { label: "Автор (твоё имя)", name: "author", widget: "string" }
-              - { label: "Заголовок", name: "title", widget: "string" }
-              - { label: "Текст", name: "text", widget: "text" }
-              - { label: "Теги", name: "tags", widget: "list", required: false }
-              - label: "Картинки"
-                name: "images"
-                widget: "list"
-                required: false
-                field: { label: "Файл", name: "image", widget: "image" }
-              - label: "Видео (mp4/webm или YouTube)"
-                name: "videos"
-                widget: "list"
-                required: false
-                field: { label: "Видео", name: "video", widget: "file" }
-              - { label: "Одобрено? (ставит админ)", name: "approved", widget: "boolean", default: false, required: false }
+          - { label: "Заявки", name: "submissions", widget: "list",
+              fields: [
+                {label: "Дата", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false},
+                {label: "Автор (твоё имя)", name: "author", widget: "string"},
+                {label: "Заголовок", name: "title", widget: "string"},
+                {label: "Текст", name: "text", widget: "text"},
+                {label: "Теги", name: "tags", widget: "list", required: false},
+                {label: "Картинки", name: "images", widget: "list", required: false, field: {label: "Файл", name: "image", widget: "image"}},
+                {label: "Видео (mp4/webm или YouTube)", name: "videos", widget: "list", required: false, field: {label: "Видео", name: "video", widget: "file"}},
+                {label: "Одобрено? (ставит админ)", name: "approved", widget: "boolean", default: false, required: false}
+              ] }
