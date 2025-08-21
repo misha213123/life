@@ -1,12 +1,10 @@
 backend:
-  # Вариант А — через Netlify Identity + Git Gateway (проще всего)
   name: git-gateway
   branch: main
 
 publish_mode: editorial_workflow
 locale: "ru"
 
-# Куда класть фото/видео
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -39,10 +37,7 @@ collections:
                 name: "videos"
                 widget: "list"
                 required: false
-                field:
-                  label: "Видео"
-                  name: "video"
-                  widget: "file"
+                field: { label: "Видео", name: "video", widget: "file" }
               - { label: "Настроение", name: "mood", widget: "string", required: false }
               - { label: "Автор (опционально)", name: "author", widget: "string", required: false }
 
