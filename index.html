@@ -1,14 +1,11 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Моя история</title>
-  <!-- Для приватности можно выключить индексацию: раскомментируй следующую строку -->
-  <!-- <meta name="robots" content="noindex, nofollow"> -->
   <meta name="description" content="Личная летопись: истории, друзья, фото и важные моменты.">
-  <link rel="preload" href="style.css" as="style">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
@@ -22,58 +19,41 @@
       </nav>
     </div>
   </header>
-
   <section class="hero">
     <div class="container">
       <h2 id="heroLine">«Не забывай, откуда ты и куда идёшь»</h2>
-      <p class="muted">Этот сайт — моя биография, собранная из реальных историй. Если ты здесь — значит, у тебя есть ключ.</p>
+      <p class="muted">Этот сайт — живой дневник. Сканируй QR — читай, листай, возвращайся.</p>
       <div class="quick-actions">
-        <input id="search" type="search" placeholder="Фильтр по тегам или словам...">
-        <button id="addEntryBtn" title="Подсказка, как добавлять истории">Как добавлять истории</button>
+        <input id="search" type="search" placeholder="Фильтр по словам и тегам…" />
+        <a class="button" href="friends/" title="Портал друзей">Портал друзей</a>
       </div>
     </div>
   </section>
-
   <main class="container">
     <section id="timeline" class="block">
       <h3>Лента историй</h3>
       <div id="timelineList" class="timeline"></div>
-      <div id="noResults" class="muted" style="display:none;">Ничего не найдено. Попробуй другой запрос.</div>
+      <div id="noResults" class="muted" style="display:none;">Ничего не найдено.</div>
     </section>
-
     <section id="friends" class="block">
       <h3>Друзья</h3>
       <div id="friendsGrid" class="friends"></div>
     </section>
-
     <section id="gallery" class="block">
       <h3>Галерея</h3>
-      <div class="gallery" id="galleryGrid">
-        <!-- Кидай свои фото в папку assets/ и добавляй их именем файла в data/stories.json, поле images -->
-      </div>
+      <div class="gallery" id="galleryGrid"></div>
     </section>
-
     <section id="about" class="block">
       <h3>О проекте</h3>
-      <p>Это статический сайт на чистом HTML/CSS/JS — без баз данных и серверов. Хостится бесплатно на GitHub Pages (или Cloudflare Pages/Netlify). 
-      Содержимое берётся из файлов в папке <code>data/</code>. Чтобы добавить новую историю — просто дополни <code>data/stories.json</code>.</p>
-      <details>
-        <summary>Гайд: как быстро добавить историю</summary>
-        <ol>
-          <li>Открой файл <code>data/stories.json</code>.</li>
-          <li>Добавь новый объект в начало массива <code>"stories"</code> по образцу.</li>
-          <li>Сохрани, закоммить и запушь — сайт обновится автоматически.</li>
-        </ol>
-      </details>
+      <p>Это статический сайт на <strong>HTML/CSS/JS</strong>, который можно редактировать прямо из браузера (телефон/ПК) через админку.
+      Содержимое берётся из <code>data/*.json</code>. Фотографии и видео хранятся в <code>assets/uploads/</code>.</p>
+      <p>Чтобы добавить историю — зайди в админку или портал друзей. После одобрения запись появится здесь.</p>
+      <div class="muted small">Админка: <a href="admin/">/admin</a>, Портал друзей: <a href="friends/">/friends</a></div>
     </section>
   </main>
-
   <footer class="site-footer">
-    <div class="container">
-      <p class="muted">Сделано любовью к памяти. Обновляется по мере жизни.</p>
-    </div>
+    <div class="container"><p class="muted">Обновляется по мере жизни.</p></div>
   </footer>
-
   <script src="app.js"></script>
 </body>
 </html>
