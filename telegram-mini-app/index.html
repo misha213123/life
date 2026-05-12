@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BarberShop Mini App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="hero">
+        <h1 id="title">BARBER LAB</h1>
+        <p class="subtitle">Запись в 2 клика прямо в Telegram</p>
+      </header>
+
+      <section class="card">
+        <h2>Услуги</h2>
+        <div class="grid" id="services"></div>
+      </section>
+
+      <section class="card">
+        <h2>Барберы</h2>
+        <div class="grid" id="barbers"></div>
+      </section>
+
+      <section class="card">
+        <h2>Выберите дату и время</h2>
+        <input id="date" type="date" />
+        <div class="times" id="times"></div>
+      </section>
+
+      <section class="card">
+        <h2>Контакты</h2>
+        <input id="name" type="text" placeholder="Ваше имя" />
+        <input id="phone" type="tel" placeholder="Телефон" />
+        <textarea id="comment" rows="3" placeholder="Комментарий (необязательно)"></textarea>
+      </section>
+
+      <button id="book" class="primary">Подтвердить запись</button>
+      <p id="status" class="status"></p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
